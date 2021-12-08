@@ -1196,11 +1196,11 @@ GameObject:
   - component: {fileID: 8306832319821546552}
   - component: {fileID: 8341692002946294165}
   - component: {fileID: 8693120704304733453}
-  - component: {fileID: 6599717920379518878}
   - component: {fileID: -6851679458562246145}
   - component: {fileID: 2193858684000377424}
   - component: {fileID: 5583817315793230224}
   - component: {fileID: -972588873881134272}
+  - component: {fileID: -6202917030780004948}
   m_Layer: 0
   m_Name: unitychan_dynamic_locomotion
   m_TagString: Player
@@ -1550,19 +1550,6 @@ MonoBehaviour:
     LayerIndex: 0
   - SynchronizeType: 0
     LayerIndex: 1
---- !u!114 &6599717920379518878
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4644543400831452845}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38105a6b87702344c8c230cb2a94b870, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cam: {fileID: 4644543400831453183}
 --- !u!114 &-6851679458562246145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1702,6 +1689,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-6202917030780004948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4644543400831452845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38105a6b87702344c8c230cb2a94b870, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allow: {fileID: 2160719054367671347, guid: 9df615d8989ed924cb87b8fb4f5e20bb, type: 3}
 --- !u!1 &4644543400831452847
 GameObject:
   m_ObjectHideFlags: 0
@@ -9283,7 +9283,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67381f139d56ce841b2948a6428c6fb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _positionStep: 2
   _mouseSensitive: 90
 --- !u!20 &5441612368456909743
 Camera:

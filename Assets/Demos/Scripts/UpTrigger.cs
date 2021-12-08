@@ -6,43 +6,33 @@ using Photon.Realtime;
 
 public class UpTrigger : MonoBehaviourPunCallbacks
 {
-    private bool _isStageChange = false;
-    int num = 0;
-
-    public GameObject cam;
-
+    private bool _isAllowChange = false;
+    private bool _isObjectTouch = false;
+    private GameObject arrow;
     private void Start () {
-
+        arrow = GameObject.FindGameObjectWithTag("Arrow");   
     }
-
     private void Update () {
-        if(_isStageChange && num == 1){
+        if(_isAllowChange && _isObjectTouch){
             if (photonView.IsMine) {
-                Transform camTransform = cam.transform;
-                Vector3 pos = camTransform.position;
-                pos.y = 2.367743f;
-                camTransform.position = pos;
-                num = 0;
+                arrow.SetActive(true);
+                _isObjectTouch = false;
             }
         }
 
-        if(!_isStageChange && num == 0) {
+        if(!_isAllowChange && !_isObjectTouch) {
             if (photonView.IsMine) {
-                Transform camTransform = cam.transform;
-                Vector3 pos = camTransform.position;
-                pos.y = 1.367743f;
-                camTransform.position = pos;
-
-                num = 1;
+                arrow.SetActive(false);
+                _isObjectTouch = true;
             }
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "UpPoint"){
+        if(other.gameObject.tag == "DistanceCIrcle"){
             if (photonView.IsMine) {
-                _isStageChange = true;
+                _isAllowChange = true;
             }
         }
     }
@@ -50,9 +40,9 @@ public class UpTrigger : MonoBehaviourPunCallbacks
     private void OnTriggerExit(Collider other)
     {
         //離れたオブジェクトのタグが"Player"のとき
-        if(other.gameObject.tag == "UpPoint"){
+        if(other.gameObject.tag == "DistanceCIrcle"){
             if (photonView.IsMine) {
-                _isStageChange = false;
+                _isAllowChange = false;
             }
         }
     }

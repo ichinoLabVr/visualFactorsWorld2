@@ -35,6 +35,7 @@ namespace Photon.Pun
         AudioSource audioSource;
         GameObject targetObj;
         GameObject obj;
+        GameObject arrow;
         GameObject[] Sobj;
         float ObjY = 1.0f; //スピーカー高さ
 
@@ -171,6 +172,13 @@ namespace Photon.Pun
                 videoPlayer.time = 0f;
                 videoPlayer.Play();
             }
+        }
+
+        private void Start()
+        {
+            Debug.Log("bbbb");
+            arrow = (GameObject)Resources.Load("Arrow");
+            Instantiate (arrow, new Vector3(0.0f,2.0f,0.0f), Quaternion.identity);
         }
 
         private void Update()

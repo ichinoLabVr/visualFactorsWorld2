@@ -9,10 +9,7 @@ TagManager:
   - UpPoint
   - Mark
   - Video
-  - BodyUp
-  - BodyUp1
-  - BodyUp2
-  - BodyUp3
+  - DistanceCIrcle
   layers:
   - Default
   - TransparentFX
