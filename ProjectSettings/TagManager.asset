@@ -10,6 +10,7 @@ TagManager:
   - Mark
   - Video
   - DistanceCIrcle
+  - Arrow
   layers:
   - Default
   - TransparentFX
