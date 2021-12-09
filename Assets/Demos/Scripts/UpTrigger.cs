@@ -8,21 +8,27 @@ public class UpTrigger : MonoBehaviourPunCallbacks
 {
     private bool _isAllowChange = false;
     private bool _isObjectTouch = false;
+    private string arrowName;
     private GameObject arrow;
     private void Start () {
-        arrow = GameObject.FindGameObjectWithTag("Arrow");   
+       
     }
     private void Update () {
         if(_isAllowChange && _isObjectTouch){
             if (photonView.IsMine) {
-                arrow.SetActive(true);
+                arrow = GameObject.Find(arrowName);
+                Renderer rend = arrow.GetComponentInChildren<Renderer>();
+                Debug.Log(rend);
+                rend.enabled = true;
+                Debug.Log(arrow);
                 _isObjectTouch = false;
             }
         }
 
         if(!_isAllowChange && !_isObjectTouch) {
             if (photonView.IsMine) {
-                arrow.SetActive(false);
+                arrow = GameObject.Find(arrowName);
+                Debug.Log(arrow);
                 _isObjectTouch = true;
             }
         }
@@ -30,9 +36,10 @@ public class UpTrigger : MonoBehaviourPunCallbacks
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "DistanceCIrcle"){
+        if(other.gameObject.tag == "Arrow"){
             if (photonView.IsMine) {
                 _isAllowChange = true;
+                arrowName = other.gameObject.name;
             }
         }
     }
@@ -40,9 +47,10 @@ public class UpTrigger : MonoBehaviourPunCallbacks
     private void OnTriggerExit(Collider other)
     {
         //離れたオブジェクトのタグが"Player"のとき
-        if(other.gameObject.tag == "DistanceCIrcle"){
+        if(other.gameObject.tag == "Arrow"){
             if (photonView.IsMine) {
                 _isAllowChange = false;
+                arrowName = other.gameObject.name;
             }
         }
     }
