@@ -17,9 +17,12 @@ public class UpTrigger : MonoBehaviourPunCallbacks
         if(_isAllowChange && _isObjectTouch){
             if (photonView.IsMine) {
                 arrow = GameObject.Find(arrowName);
-                Renderer rend = arrow.GetComponentInChildren<Renderer>();
-                Debug.Log(rend);
-                rend.enabled = true;
+                Renderer[] rends = arrow.GetComponentsInChildren<Renderer>();
+                Debug.Log(rends);
+                foreach (Renderer rend in rends)
+                {
+                   rend.enabled = true;
+                }
                 Debug.Log(arrow);
                 _isObjectTouch = false;
             }
@@ -28,9 +31,12 @@ public class UpTrigger : MonoBehaviourPunCallbacks
         if(!_isAllowChange && !_isObjectTouch) {
             if (photonView.IsMine) {
                 arrow = GameObject.Find(arrowName);
-                Renderer rend = arrow.GetComponentInChildren<Renderer>();
-                Debug.Log(rend);
-                rend.enabled = false;
+                Renderer[] rends = arrow.GetComponentsInChildren<Renderer>();
+                Debug.Log(rends);
+                foreach (Renderer rend in rends)
+                {
+                   rend.enabled = false;
+                }
                 Debug.Log(arrow);
                 _isObjectTouch = true;
             }
