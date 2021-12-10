@@ -37,6 +37,8 @@ namespace Photon.Pun
         GameObject obj;
         GameObject arrow;
         GameObject[] Sobj;
+        GameObject[] arrowObj;
+
         float ObjY = 1.0f; //スピーカー高さ
 
         public enum ParameterType
@@ -134,6 +136,7 @@ namespace Photon.Pun
             this.m_Animator = GetComponent<Animator>();
             var videoPlayer = GetComponent<VideoPlayer>();
             var firstgameObject = GameObject.Find("Speaker0");
+            var arrowGameObject = GameObject.Find("Arrow1");
             //(((PhotonNetwork.CurrentRoom.PlayerCount/8)+1)*8) - 1)
             //1列：7 8
             //2列：15 16
@@ -141,6 +144,10 @@ namespace Photon.Pun
             if (firstgameObject == null)
             {
                 Generationspeaker();
+            }
+
+            if (arrowGameObject==null){
+                Generationarrows(24);
             }
         }
 
@@ -154,6 +161,21 @@ namespace Photon.Pun
             //スピーカー生成
             Sobj[0] = Instantiate(obj, new Vector3(-5.0f, ObjY, 0.0f), Quaternion.identity);
             Sobj[0].name = "Speaker0";
+        }
+
+        public void Generationarrows(int collum)
+        {
+            // 列 × 出現させるArrow数(8個)
+            arrowObj = new GameObject[collum];
+            arrow = (GameObject)Resources.Load("Arrow");
+
+            //Arrow生成
+            for(int i = 0; i < 4; i++){
+                for(int j = 0; j < 6 ; j++){
+                    arrowObj[(i*6) + j] = Instantiate(arrow, new Vector3(-4.7f+(i*3.2f),2.7f,-7.4f+j*3f), Quaternion.identity); //x=n y=2.2 x=n
+                    arrowObj[(i*6) + j].name = "Arrow" + ((i*6) + j);
+                }
+            }
         }
 
         [PunRPC]
@@ -172,13 +194,6 @@ namespace Photon.Pun
                 videoPlayer.time = 0f;
                 videoPlayer.Play();
             }
-        }
-
-        private void Start()
-        {
-            Debug.Log("bbbb");
-            arrow = (GameObject)Resources.Load("Arrow");
-            Instantiate (arrow, new Vector3(0.0f,2.0f,0.0f), Quaternion.identity);
         }
 
         private void Update()
