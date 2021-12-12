@@ -40,7 +40,7 @@ public class BodyUp : MonoBehaviourPunCallbacks
 
                 _isObjectTouch = false;
             }
-        }　else if(_isBodyUp && _isObjectTouch && (_isBodyUpTag == "UpPoint2")) {
+        } else if(_isBodyUp && _isObjectTouch && (_isBodyUpTag == "UpPoint2")) {
             if (photonView.IsMine) {
                 upRb.isKinematic = true;
                 Transform bodyTransform = bodyUp.transform;
