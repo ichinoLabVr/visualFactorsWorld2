@@ -158,26 +158,26 @@ namespace Photon.Pun
                 Generationspeaker();
             }
 
-            if (PhotonNetwork.CurrentRoom.PlayerCount <= 8) {
-                Generationuppoint(6);
-                Generationarrows(6);
-                // GenerationCarpectSide(2);
-                // GenerationCarpectSide();
-            } else if (PhotonNetwork.CurrentRoom.PlayerCount >= 9 && PhotonNetwork.CurrentRoom.PlayerCount <= 16) {
-                Generationuppoint(12);
-                Generationarrows(12);
-                // GenerationCarpectSide(3);
-                // GenerationCarpectSide();
-            } else if (PhotonNetwork.CurrentRoom.PlayerCount >= 17 && PhotonNetwork.CurrentRoom.PlayerCount <= 24) {
-                Generationuppoint(18);
-                Generationarrows(18);
-                // GenerationCarpectSide(4);
-                // GenerationCarpectSide();
-            } else if (PhotonNetwork.CurrentRoom.PlayerCount >= 25 && PhotonNetwork.CurrentRoom.PlayerCount <= 32) {
-                Generationuppoint(24);
-                Generationarrows(24);
-                // GenerationCarpectSide();
-            }
+            // if (PhotonNetwork.CurrentRoom.PlayerCount <= 8) {
+            //     Generationuppoint(6);
+            //     Generationarrows(6);
+            //     // GenerationCarpectSide(2);
+            //     // GenerationCarpectSide();
+            // } else if (PhotonNetwork.CurrentRoom.PlayerCount >= 9 && PhotonNetwork.CurrentRoom.PlayerCount <= 16) {
+            //     Generationuppoint(12);
+            //     Generationarrows(12);
+            //     // GenerationCarpectSide(3);
+            //     // GenerationCarpectSide();
+            // } else if (PhotonNetwork.CurrentRoom.PlayerCount >= 17 && PhotonNetwork.CurrentRoom.PlayerCount <= 24) {
+            //     Generationuppoint(18);
+            //     Generationarrows(18);
+            //     // GenerationCarpectSide(4);
+            //     // GenerationCarpectSide();
+            // } else if (PhotonNetwork.CurrentRoom.PlayerCount >= 25 && PhotonNetwork.CurrentRoom.PlayerCount <= 32) {
+            //     Generationuppoint(24);
+            //     Generationarrows(24);
+            //     // GenerationCarpectSide();
+            // }
         }
 
         public void Generationspeaker()
@@ -192,20 +192,20 @@ namespace Photon.Pun
             Sobj[0].name = "Speaker0";
         }
 
-        public void Generationarrows(int collum)
-        {
-            // 列 × 出現させるArrow数(8個)
-            arrowObj = new GameObject[collum];
-            arrow = (GameObject)Resources.Load("Arrow");
+        // public void Generationarrows(int collum)
+        // {
+        //     // 列 × 出現させるArrow数(8個)
+        //     arrowObj = new GameObject[collum];
+        //     arrow = (GameObject)Resources.Load("Arrow");
 
-            //Arrow生成
-            for(int i = 0; i < (PhotonNetwork.CurrentRoom.PlayerCount / 8) + 1; i++){
-                for(int j = 0; j < 6 ; j++){
-                    arrowObj[(i*6) + j] = Instantiate(arrow, new Vector3(-4.7f+(i*3.2f),2.3f,-7.4f+j*3f), Quaternion.identity); //x=n y=2.2 x=n
-                    arrowObj[(i*6) + j].name = "Arrow" + ((i*6) + j);
-                }
-            }
-        }
+        //     //Arrow生成
+        //     for(int i = 0; i < (PhotonNetwork.CurrentRoom.PlayerCount / 8) + 1; i++){
+        //         for(int j = 0; j < 6 ; j++){
+        //             arrowObj[(i*6) + j] = Instantiate(arrow, new Vector3(-4.7f+(i*3.2f),2.3f,-7.4f+j*3f), Quaternion.identity); //x=n y=2.2 x=n
+        //             arrowObj[(i*6) + j].name = "Arrow" + ((i*6) + j);
+        //         }
+        //     }
+        // }
         //carpet横
         // public void GenerationCarpectSide(int carpectsidecollum)
         // {
@@ -237,44 +237,44 @@ namespace Photon.Pun
         //     }
         // }
 
-        public void Generationuppoint(int uppointcollum)
-        {
+        // public void Generationuppoint(int uppointcollum)
+        // {
 
-            if(uppointcollum <= 6) {
-                upPointObj = new GameObject[6];
-                upPoint = (GameObject)Resources.Load("upPoint");
+        //     if(uppointcollum <= 6) {
+        //         upPointObj = new GameObject[6];
+        //         upPoint = (GameObject)Resources.Load("upPoint");
 
-                for(int j = 0; j < 6 ; j++){
-                    upPointObj[j] = Instantiate(upPoint, new Vector3(-4.7f,0.6f,-7.4f+j*3f), Quaternion.identity); //x=n y=2.2 x=n
-                }
-            }
-            if(uppointcollum >= 7 && uppointcollum <= 12) {
-                upPointObj1 = new GameObject[6];
-                upPoint1 = (GameObject)Resources.Load("upPoint1");
+        //         for(int j = 0; j < 6 ; j++){
+        //             upPointObj[j] = Instantiate(upPoint, new Vector3(-4.7f,0.6f,-7.4f+j*3f), Quaternion.identity); //x=n y=2.2 x=n
+        //         }
+        //     }
+        //     if(uppointcollum >= 7 && uppointcollum <= 12) {
+        //         upPointObj1 = new GameObject[6];
+        //         upPoint1 = (GameObject)Resources.Load("upPoint1");
 
-                for(int j = 0; j < 6 ; j++){
-                    upPointObj1[j] = Instantiate(upPoint1, new Vector3(-4.7f+3.2f,0.6f,-7.4f+j*3f), Quaternion.identity); //x=n y=2.2 x=n
-                }
-            }
+        //         for(int j = 0; j < 6 ; j++){
+        //             upPointObj1[j] = Instantiate(upPoint1, new Vector3(-4.7f+3.2f,0.6f,-7.4f+j*3f), Quaternion.identity); //x=n y=2.2 x=n
+        //         }
+        //     }
 
-            if(uppointcollum >= 13 && uppointcollum <= 18) {
-                upPointObj2 = new GameObject[6];
-                upPoint2 = (GameObject)Resources.Load("upPoint2");
+        //     if(uppointcollum >= 13 && uppointcollum <= 18) {
+        //         upPointObj2 = new GameObject[6];
+        //         upPoint2 = (GameObject)Resources.Load("upPoint2");
 
-                for(int j = 0; j < 6 ; j++){
-                    upPointObj2[j] = Instantiate(upPoint2, new Vector3(-4.7f+(3.2f*2),0.6f,-7.4f+j*3f), Quaternion.identity); //x=n y=2.2 x=n
-                }
-            }
+        //         for(int j = 0; j < 6 ; j++){
+        //             upPointObj2[j] = Instantiate(upPoint2, new Vector3(-4.7f+(3.2f*2),0.6f,-7.4f+j*3f), Quaternion.identity); //x=n y=2.2 x=n
+        //         }
+        //     }
 
-            if(uppointcollum >= 19 && uppointcollum <= 24) {
-                upPointObj3 = new GameObject[6];
-                upPoint3 = (GameObject)Resources.Load("upPoint3");
+        //     if(uppointcollum >= 19 && uppointcollum <= 24) {
+        //         upPointObj3 = new GameObject[6];
+        //         upPoint3 = (GameObject)Resources.Load("upPoint3");
 
-                for(int j = 0; j < 6 ; j++){
-                    upPointObj3[j] = Instantiate(upPoint3, new Vector3(-4.7f+(3.2f*3),0.6f,-7.4f+j*3f), Quaternion.identity); //x=n y=2.2 x=n
-                }
-            }
-        }
+        //         for(int j = 0; j < 6 ; j++){
+        //             upPointObj3[j] = Instantiate(upPoint3, new Vector3(-4.7f+(3.2f*3),0.6f,-7.4f+j*3f), Quaternion.identity); //x=n y=2.2 x=n
+        //         }
+        //     }
+        // }
 
         [PunRPC]
         public void Audiostart()
