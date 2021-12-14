@@ -11,9 +11,7 @@ TagManager:
   - Video
   - DistanceCIrcle
   - Arrow
-  - UpPoint1
-  - UpPoint2
-  - UpPoint3
+  - panelChanger
   layers:
   - Default
   - TransparentFX

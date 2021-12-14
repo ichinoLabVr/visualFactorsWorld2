@@ -8,36 +8,27 @@ public class UpTrigger : MonoBehaviourPunCallbacks
 {
     private bool _isAllowChange = false;
     private bool _isObjectTouch = false;
-    private string arrowName;
-    private GameObject arrow;
+    private string panelChangerName;
+    private GameObject panel;
+
+    private Vector3 panelSize;
     private void Start () {
-       
+       panel = GameObject.Find("panel");
+       Debug.Log(panel.transform.localScale);
     }
     private void Update () {
         if(_isAllowChange && _isObjectTouch){
             if (photonView.IsMine) {
-                arrow = GameObject.Find(arrowName);
-                Renderer[] rends = arrow.GetComponentsInChildren<Renderer>();
-                Debug.Log(rends);
-                foreach (Renderer rend in rends)
-                {
-                   rend.enabled = true;
-                }
-                Debug.Log(arrow);
+                panelSize = panel.transform.localScale;
+                panelSize.x = panelSize.x +4;
+                panel.transform.localScale = panelSize;
                 _isObjectTouch = false;
             }
         }
 
         if(!_isAllowChange && !_isObjectTouch) {
             if (photonView.IsMine) {
-                arrow = GameObject.Find(arrowName);
-                Renderer[] rends = arrow.GetComponentsInChildren<Renderer>();
-                Debug.Log(rends);
-                foreach (Renderer rend in rends)
-                {
-                   rend.enabled = false;
-                }
-                Debug.Log(arrow);
+                
                 _isObjectTouch = true;
             }
         }
@@ -45,10 +36,10 @@ public class UpTrigger : MonoBehaviourPunCallbacks
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Arrow"){
+        if(other.gameObject.tag == "panelChanger"){
             if (photonView.IsMine) {
                 _isAllowChange = true;
-                arrowName = other.gameObject.name;
+                panelChangerName = other.gameObject.name;
             }
         }
     }
@@ -56,10 +47,10 @@ public class UpTrigger : MonoBehaviourPunCallbacks
     private void OnTriggerExit(Collider other)
     {
         //離れたオブジェクトのタグが"Player"のとき
-        if(other.gameObject.tag == "Arrow"){
+        if(other.gameObject.tag == "panelChanger"){
             if (photonView.IsMine) {
                 _isAllowChange = false;
-                arrowName = other.gameObject.name;
+                panelChangerName = other.gameObject.name;
             }
         }
     }
