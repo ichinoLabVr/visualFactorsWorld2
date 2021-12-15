@@ -20,7 +20,7 @@ public class BodyUp : MonoBehaviourPunCallbacks
     // Update is called once per frame
     private void Update()
     {
-        if(_isBodyUp && _isObjectTouch && (_isBodyUpTag == "BodyUp")) {
+        if(_isBodyUp && _isObjectTouch && (_isBodyUpTag == "UpPoint")) {
             if (photonView.IsMine) {
                 upRb.isKinematic = true;
                 Transform bodyTransform = bodyUp.transform;
@@ -30,7 +30,7 @@ public class BodyUp : MonoBehaviourPunCallbacks
 
                 _isObjectTouch = false;
             }
-        } else if(_isBodyUp && _isObjectTouch && (_isBodyUpTag == "BodyUp1")) {
+        } else if(_isBodyUp && _isObjectTouch && (_isBodyUpTag == "UpPoint1")) {
             if (photonView.IsMine) {
                 upRb.isKinematic = true;
                 Transform bodyTransform = bodyUp.transform;
@@ -40,7 +40,7 @@ public class BodyUp : MonoBehaviourPunCallbacks
 
                 _isObjectTouch = false;
             }
-        }　else if(_isBodyUp && _isObjectTouch && (_isBodyUpTag == "BodyUp2")) {
+        } else if(_isBodyUp && _isObjectTouch && (_isBodyUpTag == "UpPoint2")) {
             if (photonView.IsMine) {
                 upRb.isKinematic = true;
                 Transform bodyTransform = bodyUp.transform;
@@ -50,7 +50,7 @@ public class BodyUp : MonoBehaviourPunCallbacks
 
                 _isObjectTouch = false;
             }
-        } else if(_isBodyUp && _isObjectTouch && (_isBodyUpTag == "BodyUp3")) {
+        } else if(_isBodyUp && _isObjectTouch && (_isBodyUpTag == "UpPoint3")) {
             if (photonView.IsMine) {
                 upRb.isKinematic = true;
                 Transform bodyTransform = bodyUp.transform;
@@ -86,7 +86,6 @@ public class BodyUp : MonoBehaviourPunCallbacks
 
     private void OnTriggerExit(Collider other)
     {
-        //離れたオブジェクトのタグが"Player"のとき
         if (photonView.IsMine) {
             _isBodyUpTag = other.gameObject.tag;
             _isBodyUp = false;
