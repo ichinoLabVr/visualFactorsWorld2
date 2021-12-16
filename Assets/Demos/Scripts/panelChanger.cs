@@ -36,12 +36,9 @@ public class panelChanger : MonoBehaviourPunCallbacks
                 me = this.gameObject.transform.position;
                 disx = changer.x - me.x;
                 disz = changer.z - me.z;
-                Debug.Log(disx); // max -12.42459
-                Debug.Log(disz); // max -15.55573 右に行くとマイナス 左に行くとプラス
                 panelSize = panel.transform.localScale; //パネルサイズ取得
                 panelPos = panel.transform.localPosition; //パネルポジション取得　右は-小さい(max -8.26) 左は-大きい(max -24.5)
-                Debug.Log(panel.transform.localScale); //(9.0, 5.1, 0.2)
-                Debug.Log(panelPos.z);
+                // Debug.Log(panelPos.z);
                 panelSize.x = 9f - Mathf.Abs(disx*0.5f);
                 panelSize.y = 5.1f - Mathf.Abs(disx*0.284375f);
                 panelPos.z = disz;

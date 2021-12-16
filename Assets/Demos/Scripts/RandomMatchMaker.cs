@@ -33,7 +33,6 @@ public class RandomMatchMaker : MonoBehaviourPunCallbacks
         RoomOptions roomOptions = new RoomOptions();
         roomOptions.MaxPlayers = 100;
         PhotonNetwork.CreateRoom(null, roomOptions);
-        Debug.Log("接続成功");
     }
 
     public override void OnJoinedRoom()
@@ -42,5 +41,10 @@ public class RandomMatchMaker : MonoBehaviourPunCallbacks
         PhotonObject.name,new Vector3(Random.Range(0,6), 0f, Random.Range(-8,8)),Quaternion.identity,0);
         GameObject mainCamera = GameObject.FindWithTag("MainCamera");
         mainCamera.GetComponent<UnityChan.ThirdPersonCamera>().enabled = true;
+        Debug.Log("接続成功");
+    }
+
+    public override void OnDisconnected(DisconnectCause cause) {
+        Debug.Log("サーバーとの接続が切断されました");
     }
 }

@@ -46,7 +46,7 @@ public class CreateSP : MonoBehaviourPunCallbacks
     // 他プレイヤーがルームから退出した時に呼ばれるコールバック
     public override void OnPlayerLeftRoom(Player otherPlayer)
     {
-        RoomNum = PhotonNetwork.CurrentRoom.PlayerCount + 1;
+        RoomNum = PhotonNetwork.CurrentRoom.PlayerCount;
         Debug.Log("現在 " + RoomNum + "名 1人退出");
     }
 
