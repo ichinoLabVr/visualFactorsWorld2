@@ -15,10 +15,12 @@ public class panelChanger : MonoBehaviourPunCallbacks
 
     private Vector3 panelSize;
     private Vector3 panelPos;
+    private int RoomNum;
 
     void Start()
     {
-        changer = GameObject.Find("panelChanger").transform.position;
+        RoomNum = PhotonNetwork.CurrentRoom.PlayerCount;
+        changer = GameObject.Find($"panelChanger{RoomNum}").transform.position;
         me = this.gameObject.transform.position;
         panel = GameObject.Find("panel");
         rb = this.GetComponent<Rigidbody>();
