@@ -1199,6 +1199,7 @@ GameObject:
   - component: {fileID: 2193858684000377424}
   - component: {fileID: -972588873881134272}
   - component: {fileID: 5403436240937495446}
+  - component: {fileID: 6587218178994217726}
   m_Layer: 0
   m_Name: unitychan_dynamic_locomotion
   m_TagString: Player
@@ -1577,7 +1578,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d8c00923eb907a44ab941cf90c80e1fc, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.1
+  m_Volume: 0.309
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1673,6 +1674,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48acf9b977d41c64fb1f7a4f5936d2fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6587218178994217726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4644543400831452845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c441c4d7b978bc042a8046e21cf126a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+  rb: {fileID: 4644543400826267009}
+  span: 15
 --- !u!1 &4644543400831452847
 GameObject:
   m_ObjectHideFlags: 0
