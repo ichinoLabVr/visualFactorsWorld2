@@ -18,7 +18,7 @@ public class CreateSP : MonoBehaviourPunCallbacks
     {
         //リソースのSPを指定
         Efbj = (GameObject)Resources.Load("panelChanger");
-        RoomNum = PhotonNetwork.CurrentRoom.PlayerCount;
+        RoomNum = 32;
         Debug.Log("現在 " + RoomNum + "名");
 
         //作成するSPの数を配列で指定
